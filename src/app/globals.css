@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #F5F8FC;
+    --foreground: #101828;
+  }
+
+  /* When applying the dark theme, using ALBANIX palette */
+  .dark {
+    --background: #07111F;
+    --foreground: #F5F8FC;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  /* Smooth scrolling */
+  scroll-behavior: smooth;
+}
+
+/* Accessibility focus states */
+*:focus-visible {
+  outline: 2px solid #176BFF;
+  outline-offset: 2px;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 1s ease-out forwards;
+  opacity: 0;
+}
+
+/* Reduces animation if user prefers */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
