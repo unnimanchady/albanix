@@ -23,21 +23,37 @@ const oswald = Oswald({ subsets: ["latin"], weight: ["700"] });
 
 export default function ProductsPage() {
   return (
-    <div className="bg-slate-50 min-h-screen text-slate-900 overflow-x-hidden w-full max-w-[100vw]">
+    <div className="bg-slate-50 min-h-screen text-slate-900 pt-[64px] md:pt-[72px] overflow-x-hidden w-full max-w-[100vw]">
       
       {/* 1. HERO - FULL WIDTH IMAGE HEADER */}
-      <section 
-        className="relative w-full flex flex-col justify-center pt-[64px] md:pt-[72px] lg:pt-[86px] min-h-[550px] md:min-h-0 md:block md:h-[500px] lg:h-[560px] overflow-hidden"
-        style={{
-          backgroundImage: `url('/images/albanix-products.webp')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center center',
-          backgroundRepeat: 'no-repeat'
-        }}
-      >
+      <section className="relative w-full flex flex-col md:block md:min-h-[460px] lg:min-h-[500px] bg-[#030814] overflow-hidden">
         
+        {/* Mobile Image (Uncropped, Full Aspect Ratio) */}
+        <div className="block md:hidden w-full relative z-0">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/albanix-products.webp"
+            alt="Our Products"
+            className="w-full h-auto block"
+          />
+        </div>
+
+        {/* Desktop Image (Cover) */}
+        <div className="hidden md:block absolute inset-0 w-full h-full z-0">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/albanix-products.webp"
+            alt="Our Products"
+            className="w-full h-full object-cover object-center"
+          />
+        </div>
+        
+        {/* Dark Overlay (Desktop Only) */}
+        <div className="hidden md:block absolute inset-0 bg-[#070F1E]/35 z-10 mix-blend-multiply" />
+        <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-[#030814]/90 via-[#030814]/60 to-transparent z-10" />
+
         {/* Content Container */}
-        <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center pt-8 pb-12 md:pt-0 md:pb-0 h-full">
+        <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-center pt-8 pb-12 md:py-12 md:min-h-[460px] lg:min-h-[500px]">
           
           <div className="w-full md:w-[50%] lg:w-[45%] flex flex-col justify-center">
             {/* Breadcrumb */}
@@ -197,7 +213,7 @@ export default function ProductsPage() {
           <div className="flex flex-col">
             
             {/* PRODUCT 1: TREATANYWHERE (Text Left, Image Right) */}
-            <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center py-16 md:py-20">
+            <div id="healthcare" className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center py-16 md:py-20">
               <div className="order-2 lg:order-1">
                 <span className="text-[#00C2E8] font-semibold text-xs tracking-widest uppercase mb-3 block">
                   HEALTHCARE TECHNOLOGY
@@ -231,7 +247,7 @@ export default function ProductsPage() {
             <hr className="border-slate-200 w-full m-0" />
 
             {/* PRODUCT 2: GYM MATE (Image Left, Text Right) */}
-            <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center py-16 md:py-20">
+            <div id="fitness" className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center py-16 md:py-20">
               <div className="order-1 relative h-[300px] md:h-[450px] w-full rounded-2xl overflow-hidden shadow-[0_20px_50px_-12px_rgba(0,0,0,0.1)] border border-slate-200">
                 <Image src="/images/product-gym.png" alt="Gym Mate UI" fill className="object-cover object-left-top" />
               </div>
@@ -265,7 +281,7 @@ export default function ProductsPage() {
             <hr className="border-slate-200 w-full m-0" />
 
             {/* PRODUCT 3: MENUPILOT (Text Left, Image Right) */}
-            <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center py-16 md:py-20">
+            <div id="hospitality" className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center py-16 md:py-20">
               <div className="order-2 lg:order-1">
                 <span className="text-[#00C2E8] font-semibold text-xs tracking-widest uppercase mb-3 block">
                   RESTAURANT TECHNOLOGY
@@ -287,7 +303,7 @@ export default function ProductsPage() {
                     </li>
                   ))}
                 </ul>
-                <Link href="#menupilot" className="inline-flex items-center text-[#176BFF] font-bold hover:text-blue-700 transition-colors">
+                <Link href="/products/menupilot" className="inline-flex items-center text-[#176BFF] font-bold hover:text-blue-700 transition-colors">
                   EXPLORE MENUPILOT <ArrowRight className="ml-2 w-4 h-4" />
                 </Link>
               </div>
@@ -299,7 +315,7 @@ export default function ProductsPage() {
             <hr className="border-slate-200 w-full m-0" />
 
             {/* PRODUCT 4: ROUTEX (Image Left, Text Right) */}
-            <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center py-16 md:py-20">
+            <div id="distribution" className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center py-16 md:py-20">
               <div className="order-1 relative h-[300px] md:h-[450px] w-full rounded-2xl overflow-hidden shadow-[0_20px_50px_-12px_rgba(0,0,0,0.1)] border border-slate-200">
                 <Image src="/images/product-van-sales.png" alt="RouteX UI" fill className="object-cover object-left-top" />
               </div>
@@ -324,7 +340,7 @@ export default function ProductsPage() {
                     </li>
                   ))}
                 </ul>
-                <Link href="#routex" className="inline-flex items-center text-[#176BFF] font-bold hover:text-blue-700 transition-colors">
+                <Link href="/products/routex" className="inline-flex items-center text-[#176BFF] font-bold hover:text-blue-700 transition-colors">
                   EXPLORE ROUTEX <ArrowRight className="ml-2 w-4 h-4" />
                 </Link>
               </div>

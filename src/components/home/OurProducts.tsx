@@ -104,6 +104,15 @@ export function OurProducts() {
             );
           })}
         </div>
+
+        <div className="mt-12 text-center">
+          <Link
+            href="/products"
+            className="inline-flex items-center justify-center h-[44px] px-8 bg-albanix-cyan text-white text-[13px] font-bold rounded-[7px] hover:bg-albanix-blue transition-colors uppercase tracking-wide"
+          >
+            EXPLORE OUR PRODUCTS <ArrowRight className="ml-2 w-4 h-4" />
+          </Link>
+        </div>
       </Container>
     </section>
   );

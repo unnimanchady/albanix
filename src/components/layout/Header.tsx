@@ -3,18 +3,34 @@
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { Container } from "@/components/ui/Container";
 import { MobileNavigation } from "./MobileNavigation";
-import { ChevronDown } from "lucide-react";
-import { Chatbot } from "@/components/features/Chatbot";
+import { 
+  ChevronDown, 
+  Briefcase, 
+  ShoppingCart, 
+  LayoutTemplate, 
+  Code, 
+  PenTool, 
+  Wrench,
+  ArrowRight
+} from "lucide-react";
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [logoError, setLogoError] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const [isChatbotOpen, setIsChatbotOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const navRef = useRef<HTMLElement>(null);
+  const pathname = usePathname();
+
+  const isMobileAppsActive = 
+    pathname === "/services/ios-development" ||
+    pathname === "/services/android-development" ||
+    pathname === "/services/cross-platform" ||
+    pathname === "/services/app-design" ||
+    pathname === "/services/app-maintenance";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,12 +38,6 @@ export function Header() {
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  useEffect(() => {
-    const handleOpenChatbot = () => setIsChatbotOpen(true);
-    window.addEventListener("open-chatbot", handleOpenChatbot);
-    return () => window.removeEventListener("open-chatbot", handleOpenChatbot);
   }, []);
 
   // Handle click outside and Escape key
@@ -57,7 +67,6 @@ export function Header() {
   };
 
   return (
-    <>
     <header
       className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${
         isScrolled
@@ -94,83 +103,67 @@ export function Header() {
           ref={navRef}
           className="hidden md:flex items-center space-x-1 lg:space-x-4 xl:space-x-8"
         >
-          {/* Products */}
-          <Link
-            href="/products"
-            className="px-3 py-2 text-sm font-medium text-white hover:text-albanix-cyan transition-colors group relative"
-          >
-            Products
-            <span className="absolute bottom-1 left-3 right-3 h-0.5 bg-albanix-cyan scale-x-0 transition-transform group-hover:scale-x-100 origin-left rounded-full"></span>
-          </Link>
 
-          {/* Capabilities Mega Menu */}
+          {/* Websites Mega Menu */}
           <div 
             className="relative"
-            onMouseEnter={() => setActiveDropdown("capabilities")}
+            onMouseEnter={() => setActiveDropdown("websites")}
             onMouseLeave={() => setActiveDropdown(null)}
           >
             <button
-              onClick={() => toggleDropdown("capabilities")}
+              onClick={() => toggleDropdown("websites")}
               className={`flex items-center px-3 py-2 text-sm font-medium transition-colors relative ${
-                activeDropdown === "capabilities" ? "text-albanix-cyan" : "text-white hover:text-albanix-cyan"
+                activeDropdown === "websites" ? "text-albanix-blue" : "text-white hover:text-albanix-blue"
               }`}
-              aria-expanded={activeDropdown === "capabilities"}
+              aria-expanded={activeDropdown === "websites"}
             >
-              Capabilities
-              <ChevronDown className={`ml-1 w-4 h-4 text-white transition-transform duration-200 ${activeDropdown === "capabilities" ? "rotate-180" : ""}`} />
+              Websites
+              <ChevronDown className={`ml-1 w-4 h-4 text-white transition-transform duration-200 ${activeDropdown === "websites" ? "rotate-180" : ""}`} />
             </button>
             
-            {/* Mega Menu Dropdown */}
-            {activeDropdown === "capabilities" && (
+            {activeDropdown === "websites" && (
               <div 
-                className="absolute left-1/2 -translate-x-1/2 top-full w-[700px] lg:w-[800px] pt-4"
+                className="absolute left-1/2 -translate-x-[40%] lg:-translate-x-[42%] xl:-translate-x-1/2 top-full w-[800px] pt-4"
                 ref={dropdownRef}
               >
-                <div className="bg-white rounded-xl shadow-2xl border border-gray-100 overflow-hidden text-gray-800 animate-in fade-in slide-in-from-top-2 duration-200">
-                  <div className="grid grid-cols-2 p-8 gap-12">
-                    <div>
-                      <h3 className="text-sm font-bold text-gray-900 tracking-wider uppercase mb-5 border-b border-gray-100 pb-2">
-                        Industrial Intelligence & Capabilities
-                      </h3>
-                      <ul className="space-y-4">
-                        {[
-                          { name: "Industrial AI", href: "/industrial-ai" },
-                          { name: "Embedded Systems", href: "/products/embedded-systems" },
-                          { name: "Data & Integrations (OT↔IT)", href: "/data-integrations-ot-it" },
-                          { name: "Visualization (2D/3D/IFC/Unity)", href: "#visualization" },
-                          { name: "Workflow Orchestration", href: "#workflow-orchestration" }
-                        ].map((item) => (
-                          <li key={item.name}>
-                            <Link 
-                              href={item.href}
-                              className="text-[15px] font-medium text-gray-600 hover:text-albanix-blue transition-colors flex items-center group"
-                              onClick={() => setActiveDropdown(null)}
-                            >
-                              <span className="w-1.5 h-1.5 rounded-full bg-albanix-cyan/50 mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                <div className="bg-white rounded-xl shadow-2xl border border-gray-100 overflow-hidden text-gray-800 animate-in fade-in slide-in-from-top-2 duration-150">
+                  <div className="p-8">
+                    <h3 className="text-[11px] font-bold text-gray-500 tracking-wider uppercase mb-1">
+                      Websites
+                    </h3>
+                    <p className="text-sm text-gray-600 mb-6 pb-4 border-b border-gray-100">
+                      Modern, high-performance websites built for your business.
+                    </p>
+                    <div className="grid grid-cols-2 gap-x-12 gap-y-6">
+                      {[
+                        { name: "Business Websites", desc: "Professional websites for companies and organizations", icon: Briefcase, href: "/services/business-websites" },
+                        { name: "E-commerce Websites", desc: "Online stores that convert visitors into customers", icon: ShoppingCart, href: "/services/ecommerce" },
+                        { name: "WordPress Development", desc: "Flexible WordPress websites and business solutions", icon: LayoutTemplate, href: "/services/wordpress" },
+                        { name: "Custom Web Development", desc: "Tailored websites built around your requirements", icon: Code, href: "/services/custom-web" },
+                        { name: "Website Redesign", desc: "Modernize outdated websites and improve user experience", icon: PenTool, href: "/services/redesign" },
+                        { name: "Website Maintenance", desc: "Ongoing updates, security and technical support", icon: Wrench, href: "/services/maintenance" }
+                      ].map((item) => (
+                        <Link 
+                          key={item.name}
+                          href={item.href}
+                          className="flex items-start group"
+                          onClick={() => setActiveDropdown(null)}
+                        >
+                          <div className="flex-shrink-0 mt-1">
+                            <div className="w-10 h-10 rounded-lg bg-blue-50 text-albanix-blue flex items-center justify-center group-hover:bg-albanix-blue group-hover:text-white transition-colors">
+                              <item.icon className="w-5 h-5" />
+                            </div>
+                          </div>
+                          <div className="ml-4">
+                            <h4 className="text-[15px] font-semibold text-slate-900 group-hover:text-albanix-blue transition-colors">
                               {item.name}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div>
-                      <h3 className="text-sm font-bold text-gray-900 tracking-wider uppercase mb-5 border-b border-gray-100 pb-2">
-                        Engineering & Product Development
-                      </h3>
-                      <ul className="space-y-4">
-                        {["App Development", "Modern App Engineering", "DevOps & SRE", "Security & Compliance"].map((item) => (
-                          <li key={item}>
-                            <Link 
-                              href={`#${item.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}
-                              className="text-[15px] font-medium text-gray-600 hover:text-albanix-blue transition-colors flex items-center group"
-                              onClick={() => setActiveDropdown(null)}
-                            >
-                              <span className="w-1.5 h-1.5 rounded-full bg-albanix-cyan/50 mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                              {item}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
+                            </h4>
+                            <p className="text-[13px] text-gray-500 mt-1 leading-snug">
+                              {item.desc}
+                            </p>
+                          </div>
+                        </Link>
+                      ))}
                     </div>
                   </div>
                 </div>
@@ -178,13 +171,172 @@ export function Header() {
             )}
           </div>
 
-          {/* Technology */}
-          <Link
-            href="#technology"
-            className="px-3 py-2 text-sm font-medium text-white hover:text-albanix-cyan transition-colors group relative"
+          {/* Products Mega Menu */}
+          <div 
+            className="relative"
+            onMouseEnter={() => setActiveDropdown("products")}
+            onMouseLeave={() => setActiveDropdown(null)}
           >
-            Technology
-            <span className="absolute bottom-1 left-3 right-3 h-0.5 bg-albanix-cyan scale-x-0 transition-transform group-hover:scale-x-100 origin-left rounded-full"></span>
+            <button
+              onClick={() => toggleDropdown("products")}
+              className={`flex items-center px-3 py-2 text-sm font-medium transition-colors relative ${
+                activeDropdown === "products" ? "text-albanix-blue" : "text-white hover:text-albanix-blue"
+              }`}
+              aria-expanded={activeDropdown === "products"}
+            >
+              Products
+              <ChevronDown className={`ml-1 w-4 h-4 text-white transition-transform duration-200 ${activeDropdown === "products" ? "rotate-180" : ""}`} />
+            </button>
+            
+            {activeDropdown === "products" && (
+              <div className="absolute left-1/2 -translate-x-1/2 top-full w-[600px] pt-4">
+                <div className="bg-white rounded-xl shadow-2xl border border-gray-100 overflow-hidden text-gray-800 animate-in fade-in slide-in-from-top-2 duration-150">
+                  <div className="p-8">
+                    <h3 className="text-[11px] font-bold text-gray-500 tracking-wider uppercase mb-1">
+                      SaaS Products
+                    </h3>
+                    <p className="text-sm text-gray-600 mb-6 pb-4 border-b border-gray-100">
+                      Ready-to-use software products designed to help businesses grow.
+                    </p>
+                    
+                    <div className="grid grid-cols-2 gap-x-8 gap-y-6">
+                      <Link 
+                        href="/products/treatanywhere"
+                        className="col-span-2 group block p-4 rounded-xl bg-slate-50 border border-slate-100 hover:border-albanix-blue/30 hover:bg-blue-50/50 transition-all"
+                        onClick={() => setActiveDropdown(null)}
+                      >
+                        <div className="flex items-center justify-between">
+                          <div>
+                            <h4 className="text-lg font-bold text-slate-900 group-hover:text-albanix-blue transition-colors">TreatAnywhere</h4>
+                            <p className="text-sm text-gray-500 mt-1">Healthcare Without Borders</p>
+                          </div>
+                          <ArrowRight className="w-5 h-5 text-albanix-blue opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
+                        </div>
+                      </Link>
+
+                      {[
+                        { name: "Gym Mate", desc: "Run Your Fitness Business Smarter", href: "/products/gym-mate" },
+                        { name: "MenuPilot", desc: "From Order to Customer Delight", href: "/products/menupilot" },
+                        { name: "RouteX", desc: "Distribution That Moves With You", href: "/products/routex" }
+                      ].map((item) => (
+                        <Link 
+                          key={item.name}
+                          href={item.href}
+                          className="block group"
+                          onClick={() => setActiveDropdown(null)}
+                        >
+                          <h4 className="text-[15px] font-semibold text-slate-900 group-hover:text-albanix-blue transition-colors">
+                            {item.name}
+                          </h4>
+                          <p className="text-[13px] text-gray-500 mt-1 leading-snug">
+                            {item.desc}
+                          </p>
+                        </Link>
+                      ))}
+                    </div>
+
+                    <div className="mt-8 pt-4 border-t border-gray-100">
+                      <Link 
+                        href="/products"
+                        className="text-[14px] font-medium text-albanix-blue hover:text-blue-700 flex items-center transition-colors"
+                        onClick={() => setActiveDropdown(null)}
+                      >
+                        View All Products <ArrowRight className="w-4 h-4 ml-1" />
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Mobile Apps Mega Menu */}
+          <div 
+            className="relative"
+            onMouseEnter={() => setActiveDropdown("apps")}
+            onMouseLeave={() => setActiveDropdown(null)}
+          >
+            <button
+              onClick={() => toggleDropdown("apps")}
+              className={`flex items-center px-3 py-2 text-sm font-medium transition-colors relative ${
+                activeDropdown === "apps" || isMobileAppsActive ? "text-albanix-blue" : "text-white hover:text-albanix-blue"
+              }`}
+              aria-expanded={activeDropdown === "apps"}
+            >
+              Mobile Apps
+              <ChevronDown className={`ml-1 w-4 h-4 transition-transform duration-200 ${activeDropdown === "apps" ? "rotate-180" : ""} ${activeDropdown === "apps" || isMobileAppsActive ? "text-albanix-blue" : "text-white"}`} />
+            </button>
+            
+            {activeDropdown === "apps" && (
+              <div className="absolute left-1/2 -translate-x-1/2 top-full w-[650px] pt-4">
+                <div className="bg-white rounded-[14px] shadow-2xl border border-gray-100 overflow-hidden text-gray-800 animate-in fade-in slide-in-from-top-2 duration-150">
+                  <div className="p-8">
+                    <h3 className="text-[11px] font-bold text-gray-500 tracking-wider uppercase mb-1">
+                      MOBILE APPS
+                    </h3>
+                    <p className="text-[14px] text-slate-500 mb-6 pb-6 border-b border-gray-100">
+                      Modern mobile experiences for iOS and Android.
+                    </p>
+                    
+                    <div className="grid grid-cols-2 gap-x-12">
+                      {/* Left Column */}
+                      <div className="flex flex-col space-y-8">
+                        {[
+                          { name: "iOS App Development", desc: "Native-quality applications for Apple devices", href: "/services/ios-development" },
+                          { name: "Cross-Platform Apps", desc: "Build once and deliver across iOS and Android", href: "/services/cross-platform" },
+                          { name: "App Maintenance", desc: "Updates, improvements and long-term support", href: "/services/app-maintenance" }
+                        ].map((item) => (
+                          <Link 
+                            key={item.name}
+                            href={item.href}
+                            className="block group"
+                            onClick={() => setActiveDropdown(null)}
+                          >
+                            <h4 className="text-[16px] font-semibold text-slate-800 group-hover:text-albanix-blue transition-colors">
+                              {item.name}
+                            </h4>
+                            <p className="text-[14px] text-slate-500 mt-1.5 leading-snug">
+                              {item.desc}
+                            </p>
+                          </Link>
+                        ))}
+                      </div>
+
+                      {/* Right Column */}
+                      <div className="flex flex-col space-y-8">
+                        {[
+                          { name: "Android App Development", desc: "Modern Android applications for businesses", href: "/services/android-development" },
+                          { name: "App UI/UX Design", desc: "User-friendly mobile experiences", href: "/services/app-design" }
+                        ].map((item) => (
+                          <Link 
+                            key={item.name}
+                            href={item.href}
+                            className="block group"
+                            onClick={() => setActiveDropdown(null)}
+                          >
+                            <h4 className="text-[16px] font-semibold text-slate-800 group-hover:text-albanix-blue transition-colors">
+                              {item.name}
+                            </h4>
+                            <p className="text-[14px] text-slate-500 mt-1.5 leading-snug">
+                              {item.desc}
+                            </p>
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Portfolio */}
+          <Link
+            href="/portfolio"
+            className="px-3 py-2 text-sm font-medium text-white hover:text-albanix-blue transition-colors group relative"
+          >
+            Portfolio
+            <span className="absolute bottom-1 left-3 right-3 h-0.5 bg-albanix-blue scale-x-0 transition-transform group-hover:scale-x-100 origin-left rounded-full"></span>
           </Link>
 
           {/* Company */}
@@ -196,7 +348,7 @@ export function Header() {
             <button
               onClick={() => toggleDropdown("company")}
               className={`flex items-center px-3 py-2 text-sm font-medium transition-colors relative ${
-                activeDropdown === "company" ? "text-albanix-cyan" : "text-white hover:text-albanix-cyan"
+                activeDropdown === "company" ? "text-albanix-blue" : "text-white hover:text-albanix-blue"
               }`}
               aria-expanded={activeDropdown === "company"}
             >
@@ -205,17 +357,30 @@ export function Header() {
             </button>
             
             {activeDropdown === "company" && (
-              <div className="absolute left-0 top-full w-56 pt-2">
-                <div className="bg-white rounded-xl shadow-xl border border-gray-100 py-3 text-gray-800 animate-in fade-in slide-in-from-top-2 duration-200">
-                  <ul className="space-y-1">
-                    {["About Us", "Site Map"].map((item) => (
-                      <li key={item}>
+              <div className="absolute left-1/2 -translate-x-1/2 top-full w-[400px] pt-4">
+                <div className="bg-white rounded-xl shadow-xl border border-gray-100 py-6 px-6 text-gray-800 animate-in fade-in slide-in-from-top-2 duration-150">
+                  <h3 className="text-[11px] font-bold text-gray-500 tracking-wider uppercase mb-4">
+                    Company
+                  </h3>
+                  <ul className="space-y-4">
+                    {[
+                      { name: "About ALBANIX", desc: "Who we are and what we build", href: "/about" },
+                      { name: "Our Approach", desc: "How we turn ideas into digital products", href: "/approach" },
+                      { name: "Capabilities", desc: "Our development and design services", href: "/capabilities" },
+                      { name: "Contact Us", desc: "Let's discuss your project", href: "/contact" }
+                    ].map((item) => (
+                      <li key={item.name}>
                         <Link 
-                          href={`#${item.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}
-                          className="block px-6 py-2.5 text-sm font-medium text-gray-600 hover:text-albanix-blue hover:bg-gray-50 transition-colors"
+                          href={item.href}
+                          className="block group"
                           onClick={() => setActiveDropdown(null)}
                         >
-                          {item}
+                          <h4 className="text-[15px] font-semibold text-slate-900 group-hover:text-albanix-blue transition-colors">
+                            {item.name}
+                          </h4>
+                          <p className="text-[13px] text-gray-500 mt-1">
+                            {item.desc}
+                          </p>
                         </Link>
                       </li>
                     ))}
@@ -225,67 +390,19 @@ export function Header() {
             )}
           </div>
 
-          {/* Get in Touch */}
-          <div 
-            className="relative"
-            onMouseEnter={() => setActiveDropdown("contact")}
-            onMouseLeave={() => setActiveDropdown(null)}
-          >
-            <button
-              onClick={() => toggleDropdown("contact")}
-              className={`flex items-center px-3 py-2 text-sm font-medium transition-colors relative ${
-                activeDropdown === "contact" ? "text-albanix-cyan" : "text-white hover:text-albanix-cyan"
-              }`}
-              aria-expanded={activeDropdown === "contact"}
-            >
-              Get in Touch
-              <ChevronDown className={`ml-1 w-4 h-4 text-white transition-transform duration-200 ${activeDropdown === "contact" ? "rotate-180" : ""}`} />
-            </button>
-            
-            {activeDropdown === "contact" && (
-              <div className="absolute left-0 top-full w-56 pt-2">
-                <div className="bg-white rounded-xl shadow-xl border border-gray-100 py-3 text-gray-800 animate-in fade-in slide-in-from-top-2 duration-200">
-                  <ul className="space-y-1">
-                    {["Contact Us", "Careers"].map((item) => (
-                      <li key={item}>
-                        <Link 
-                          href={`#${item.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}
-                          className="block px-6 py-2.5 text-sm font-medium text-gray-600 hover:text-albanix-blue hover:bg-gray-50 transition-colors"
-                          onClick={() => setActiveDropdown(null)}
-                        >
-                          {item}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            )}
-          </div>
-
-          {/* Blog */}
-          <Link
-            href="#blog"
-            className="px-3 py-2 text-sm font-medium text-white hover:text-albanix-cyan transition-colors group relative"
-          >
-            Blog
-            <span className="absolute bottom-1 left-3 right-3 h-0.5 bg-albanix-cyan scale-x-0 transition-transform group-hover:scale-x-100 origin-left rounded-full"></span>
-          </Link>
         </nav>
 
         {/* Right CTA & Mobile Nav */}
         <div className="flex items-center space-x-4 z-[110]">
-          <button
-            onClick={() => setIsChatbotOpen(true)}
+          <Link
+            href="/contact"
             className="hidden md:inline-flex items-center justify-center px-6 py-2.5 bg-albanix-blue text-white text-sm font-semibold rounded-md hover:bg-blue-600 hover:shadow-lg transition-all active:scale-95"
           >
-            ASK HANI &rarr;
-          </button>
+            Get in Touch &rarr;
+          </Link>
           <MobileNavigation />
         </div>
       </Container>
     </header>
-    {isChatbotOpen && <Chatbot onClose={() => setIsChatbotOpen(false)} />}
-    </>
   );
 }

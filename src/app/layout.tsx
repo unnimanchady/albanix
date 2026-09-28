@@ -4,6 +4,7 @@ import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { CookieConsent } from "@/components/features/CookieConsent";
+import { WhatsAppButton } from "@/components/features/WhatsAppButton";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -34,6 +35,7 @@ export default function RootLayout({
         </main>
         <Footer />
         <CookieConsent />
+        <WhatsAppButton />
       </body>
     </html>
   );

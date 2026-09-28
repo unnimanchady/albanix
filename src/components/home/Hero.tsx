@@ -10,21 +10,8 @@ import { HeartPulse, Dumbbell, Utensils, Truck } from "lucide-react";
 const oswald = Oswald({ subsets: ["latin"], weight: ["700"] });
 
 export function Hero() {
-  const [isVideoReady, setIsVideoReady] = useState(false);
   const desktopVideoRef = useRef<HTMLVideoElement>(null);
   const mobileVideoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    // Check if videos are already ready (e.g. from cache) to prevent infinite loading
-    if (desktopVideoRef.current && desktopVideoRef.current.readyState >= 3) {
-      setIsVideoReady(true);
-    } else if (mobileVideoRef.current && mobileVideoRef.current.readyState >= 3) {
-      setIsVideoReady(true);
-    }
-  }, []);
-
-  const handleVideoReady = () => setIsVideoReady(true);
-  const handleVideoError = () => setIsVideoReady(true); // Fallback to reveal hero if video fails
 
   return (
     <section 
@@ -43,9 +30,6 @@ export function Hero() {
           playsInline 
           preload="metadata"
           className="absolute inset-0 w-full h-full object-cover md:hidden"
-          onCanPlay={handleVideoReady}
-          onLoadedData={handleVideoReady}
-          onError={handleVideoError}
         />
         
         {/* Desktop Video Background */}
@@ -59,9 +43,6 @@ export function Hero() {
           preload="metadata"
           className="absolute inset-0 w-full h-full object-cover hidden md:block"
           style={{ objectPosition: "center center" }}
-          onCanPlay={handleVideoReady}
-          onLoadedData={handleVideoReady}
-          onError={handleVideoError}
         />
         
         {/* Desktop Layered dark overlay */}
@@ -101,17 +82,11 @@ export function Hero() {
           
           <div className="flex flex-col sm:flex-row items-start gap-4">
             <Link
-              href="#products"
+              href="/products"
               className="flex items-center justify-center h-[44px] px-6 bg-[#0066FF] text-white text-[13px] font-bold rounded-[7px] hover:bg-blue-600 transition-all w-full sm:w-auto text-center"
             >
               EXPLORE OUR PRODUCTS <span className="ml-2 font-normal">&rarr;</span>
             </Link>
-            <button
-              onClick={() => window.dispatchEvent(new Event("open-chatbot"))}
-              className="flex items-center justify-center h-[44px] px-6 bg-transparent border border-[#64748B]/60 text-white text-[13px] font-bold rounded-[7px] hover:bg-white/10 transition-all w-full sm:w-auto text-center"
-            >
-              ASK HANI <span className="ml-2 font-normal">&rarr;</span>
-            </button>
           </div>
         </div>
 
@@ -180,26 +155,6 @@ export function Hero() {
         </div>
       </Container>
 
-      {/* Preloader Layer (Moved here to sit above Container's z-20) */}
-      <div 
-        className={`absolute inset-0 z-50 flex flex-col items-center justify-center bg-[#010816] transition-opacity duration-[800ms] ease-in-out ${
-          isVideoReady ? "opacity-0 pointer-events-none" : "opacity-100"
-        }`}
-      >
-        <div className="relative flex flex-col items-center motion-safe:animate-pulse">
-          <Image
-            src="/images/albanix-logo.png"
-            alt="ALBANIX"
-            width={220}
-            height={62}
-            priority
-            className="h-auto w-[160px] md:w-[200px] object-contain"
-          />
-          <div className="mt-8 w-32 h-[1px] bg-gradient-to-r from-transparent via-[#08E0E8] to-transparent motion-safe:animate-pulse" />
-          <span className="mt-3 text-[10px] text-white/40 uppercase tracking-[0.2em] font-semibold">Loading</span>
-        </div>
-      </div>
-      
     </section>
   );
 }

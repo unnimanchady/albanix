@@ -33,7 +33,7 @@ export function MobileNavigation() {
     <div className="md:hidden">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="p-2 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-albanix-cyan rounded-md text-white hover:text-albanix-cyan"
+        className="p-2 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-albanix-blue rounded-md text-white hover:text-albanix-blue"
         aria-expanded={isOpen}
         aria-label="Toggle navigation menu"
       >
@@ -45,155 +45,162 @@ export function MobileNavigation() {
         <div className="fixed inset-0 top-[72px] bg-black z-[100] flex flex-col pt-8 px-6 animate-in slide-in-from-right-full duration-300 shadow-xl overflow-y-auto pb-8">
           <nav className="flex flex-col space-y-6">
             
-            {/* Products */}
+            {/* Home */}
             <Link
-              href="/products"
-              className="text-2xl font-medium text-white hover:text-albanix-cyan transition-colors"
+              href="/"
+              className="text-2xl font-medium text-white hover:text-albanix-blue transition-colors"
               onClick={closeMenu}
             >
-              Products
+              Home
             </Link>
 
-            {/* Capabilities Accordion */}
+            {/* Websites Accordion */}
             <div className="flex flex-col">
               <button 
-                onClick={() => toggleAccordion("capabilities")}
-                className="flex items-center justify-between text-2xl font-medium text-white hover:text-albanix-cyan transition-colors"
+                onClick={() => toggleAccordion("websites")}
+                className="flex items-center justify-between text-2xl font-medium text-white hover:text-albanix-blue transition-colors"
               >
-                Capabilities
-                <ChevronDown className={`w-6 h-6 transition-transform duration-200 ${openAccordion === "capabilities" ? "rotate-180" : ""}`} />
+                Websites
+                <ChevronDown className={`w-6 h-6 transition-transform duration-200 ${openAccordion === "websites" ? "rotate-180" : ""}`} />
               </button>
               
-              {openAccordion === "capabilities" && (
-                <div className="mt-4 pl-4 flex flex-col space-y-5 animate-in slide-in-from-top-2 duration-200 border-l-2 border-albanix-secondary">
-                  <div>
-                    <h3 className="text-sm font-bold text-albanix-cyan tracking-wider uppercase mb-3">
-                      Industrial Intelligence & Capabilities
-                    </h3>
-                    <ul className="flex flex-col space-y-3">
-                      {[
-                        { name: "Industrial AI", href: "/industrial-ai" },
-                        { name: "Embedded Systems", href: "/products/embedded-systems" },
-                        { name: "Data & Integrations (OT↔IT)", href: "/data-integrations-ot-it" },
-                        { name: "Visualization (2D/3D/IFC/Unity)", href: "#visualization" },
-                        { name: "Workflow Orchestration", href: "#workflow-orchestration" }
-                      ].map((item) => (
-                        <li key={item.name}>
-                          <Link 
-                            href={item.href}
-                            className="text-lg text-albanix-light hover:text-white transition-colors block py-1"
-                            onClick={closeMenu}
-                          >
-                            {item.name}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div>
-                    <h3 className="text-sm font-bold text-albanix-cyan tracking-wider uppercase mb-3">
-                      Engineering & Product Development
-                    </h3>
-                    <ul className="flex flex-col space-y-3">
-                      {["App Development", "Modern App Engineering", "DevOps & SRE", "Security & Compliance"].map((item) => (
-                        <li key={item}>
-                          <Link 
-                            href={`#${item.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}
-                            className="text-lg text-albanix-light hover:text-white transition-colors block py-1"
-                            onClick={closeMenu}
-                          >
-                            {item}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+              {openAccordion === "websites" && (
+                <div className="mt-4 pl-4 flex flex-col space-y-3 animate-in slide-in-from-top-2 duration-200 border-l-2 border-white/10">
+                  {[
+                    { name: "Business Websites", href: "/services/business-websites" },
+                    { name: "E-commerce Websites", href: "/services/ecommerce" },
+                    { name: "WordPress Development", href: "/services/wordpress" },
+                    { name: "Custom Web Development", href: "/services/custom-web" },
+                    { name: "Website Redesign", href: "/services/redesign" },
+                    { name: "Maintenance & Support", href: "/services/maintenance" }
+                  ].map((item) => (
+                    <Link 
+                      key={item.name}
+                      href={item.href}
+                      className="text-lg text-gray-400 hover:text-white transition-colors block py-1"
+                      onClick={closeMenu}
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
                 </div>
               )}
             </div>
 
-            {/* Technology */}
+            {/* Products Accordion */}
+            <div className="flex flex-col">
+              <button 
+                onClick={() => toggleAccordion("products")}
+                className="flex items-center justify-between text-2xl font-medium text-white hover:text-albanix-blue transition-colors"
+              >
+                Products
+                <ChevronDown className={`w-6 h-6 transition-transform duration-200 ${openAccordion === "products" ? "rotate-180" : ""}`} />
+              </button>
+              
+              {openAccordion === "products" && (
+                <div className="mt-4 pl-4 flex flex-col space-y-3 animate-in slide-in-from-top-2 duration-200 border-l-2 border-white/10">
+                  {[
+                    { name: "TreatAnywhere", href: "/products/treatanywhere" },
+                    { name: "Gym Mate", href: "/products/gym-mate" },
+                    { name: "MenuPilot", href: "/products/menupilot" },
+                    { name: "RouteX", href: "/products/routex" },
+                    { name: "All Products", href: "/products" }
+                  ].map((item) => (
+                    <Link 
+                      key={item.name}
+                      href={item.href}
+                      className={`text-lg transition-colors block py-1 ${item.name === "TreatAnywhere" ? "text-albanix-blue font-medium" : "text-gray-400 hover:text-white"}`}
+                      onClick={closeMenu}
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Mobile Apps Accordion */}
+            <div className="flex flex-col">
+              <button 
+                onClick={() => toggleAccordion("apps")}
+                className="flex items-center justify-between text-2xl font-medium text-white hover:text-albanix-blue transition-colors"
+              >
+                Mobile Apps
+                <ChevronDown className={`w-6 h-6 transition-transform duration-200 ${openAccordion === "apps" ? "rotate-180" : ""}`} />
+              </button>
+              
+              {openAccordion === "apps" && (
+                <div className="mt-4 pl-4 flex flex-col space-y-3 animate-in slide-in-from-top-2 duration-200 border-l-2 border-white/10">
+                  {[
+                    { name: "iOS Apps", href: "/services/ios-development" },
+                    { name: "Android Apps", href: "/services/android-development" },
+                    { name: "Cross-Platform Apps", href: "/services/cross-platform" },
+                    { name: "App UI/UX Design", href: "/services/app-design" },
+                    { name: "App Maintenance", href: "/services/app-maintenance" }
+                  ].map((item) => (
+                    <Link 
+                      key={item.name}
+                      href={item.href}
+                      className="text-lg text-gray-400 hover:text-white transition-colors block py-1"
+                      onClick={closeMenu}
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Portfolio */}
             <Link
-              href="#technology"
-              className="text-2xl font-medium text-white hover:text-albanix-cyan transition-colors"
+              href="/portfolio"
+              className="text-2xl font-medium text-white hover:text-albanix-blue transition-colors"
               onClick={closeMenu}
             >
-              Technology
+              Portfolio
             </Link>
 
             {/* Company Accordion */}
             <div className="flex flex-col">
               <button 
                 onClick={() => toggleAccordion("company")}
-                className="flex items-center justify-between text-2xl font-medium text-white hover:text-albanix-cyan transition-colors"
+                className="flex items-center justify-between text-2xl font-medium text-white hover:text-albanix-blue transition-colors"
               >
                 Company
                 <ChevronDown className={`w-6 h-6 transition-transform duration-200 ${openAccordion === "company" ? "rotate-180" : ""}`} />
               </button>
               
               {openAccordion === "company" && (
-                <div className="mt-4 pl-4 flex flex-col space-y-3 animate-in slide-in-from-top-2 duration-200 border-l-2 border-albanix-secondary">
-                  {["About Us", "Site Map"].map((item) => (
+                <div className="mt-4 pl-4 flex flex-col space-y-3 animate-in slide-in-from-top-2 duration-200 border-l-2 border-white/10">
+                  {[
+                    { name: "About ALBANIX", href: "/about" },
+                    { name: "Our Approach", href: "/approach" },
+                    { name: "Capabilities", href: "/capabilities" },
+                    { name: "Contact", href: "/contact" }
+                  ].map((item) => (
                     <Link 
-                      key={item}
-                      href={`#${item.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}
-                      className="text-lg text-albanix-light hover:text-white transition-colors block py-1"
+                      key={item.name}
+                      href={item.href}
+                      className="text-lg text-gray-400 hover:text-white transition-colors block py-1"
                       onClick={closeMenu}
                     >
-                      {item}
+                      {item.name}
                     </Link>
                   ))}
                 </div>
               )}
             </div>
-
-            {/* Get in Touch Accordion */}
-            <div className="flex flex-col">
-              <button 
-                onClick={() => toggleAccordion("contact")}
-                className="flex items-center justify-between text-2xl font-medium text-white hover:text-albanix-cyan transition-colors"
-              >
-                Get in Touch
-                <ChevronDown className={`w-6 h-6 transition-transform duration-200 ${openAccordion === "contact" ? "rotate-180" : ""}`} />
-              </button>
-              
-              {openAccordion === "contact" && (
-                <div className="mt-4 pl-4 flex flex-col space-y-3 animate-in slide-in-from-top-2 duration-200 border-l-2 border-albanix-secondary">
-                  {["Contact Us", "Careers"].map((item) => (
-                    <Link 
-                      key={item}
-                      href={`#${item.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}
-                      className="text-lg text-albanix-light hover:text-white transition-colors block py-1"
-                      onClick={closeMenu}
-                    >
-                      {item}
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
-
-            {/* Blog */}
-            <Link
-              href="#blog"
-              className="text-2xl font-medium text-white hover:text-albanix-cyan transition-colors"
-              onClick={closeMenu}
-            >
-              Blog
-            </Link>
 
           </nav>
           
-          <div className="mt-auto pt-10 border-t border-albanix-secondary">
-            <button
-              onClick={() => {
-                closeMenu();
-                window.dispatchEvent(new Event("open-chatbot"));
-              }}
-              className="w-full flex items-center justify-center bg-albanix-blue text-white py-4 rounded-md text-lg font-semibold hover:bg-blue-500 transition-colors"
+          <div className="mt-auto pt-10 border-t border-white/10">
+            <Link
+              href="/contact"
+              onClick={closeMenu}
+              className="w-full flex items-center justify-center bg-albanix-blue text-white py-4 rounded-md text-lg font-semibold hover:bg-blue-600 transition-colors"
             >
-              ASK HANI &rarr;
-            </button>
+              Get in Touch &rarr;
+            </Link>
           </div>
         </div>
       )}

@@ -32,28 +32,37 @@ export function EmbeddedSystems() {
   return (
     <div id="embedded-systems" className="w-full flex flex-col">
       
-      {/* 1. HERO SECTION */}
-      <section 
-        className="relative w-full flex flex-col justify-center pt-[64px] md:pt-[72px] lg:pt-[86px] h-[500px] lg:h-[560px] bg-[#030814] overflow-hidden"
-      >
-        <div className="absolute inset-0 w-full h-full z-0 flex justify-end">
-          <div className="relative w-full lg:w-[65%] h-full">
-            {/* Dark gradient overlay blending into the image */}
-            <div className="absolute inset-0 z-10 bg-gradient-to-r from-[#030814] via-[#030814]/80 to-transparent lg:to-transparent lg:via-[#030814]/30"></div>
-            <Image 
-              src="/images/embedded-hero.jpg" 
-              alt="Embedded Systems Engineering" 
-              fill 
-              className="object-cover object-left"
-              priority
-            />
-          </div>
+      {/* 1. HERO - FULL WIDTH IMAGE HEADER */}
+      <section className="relative w-full flex flex-col md:block md:min-h-[460px] lg:min-h-[500px] bg-[#030814] overflow-hidden">
+        
+        {/* Mobile Image (Uncropped, Full Aspect Ratio) */}
+        <div className="block md:hidden w-full relative z-0">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/embedded-hero.jpg"
+            alt="Embedded Systems Engineering"
+            className="w-full h-auto block"
+          />
         </div>
 
-        <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center py-12 lg:py-0 h-full">
+        {/* Desktop Image (Cover) */}
+        <div className="hidden md:block absolute inset-0 w-full h-full z-0">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/embedded-hero.jpg"
+            alt="Embedded Systems Engineering"
+            className="w-full h-full object-cover object-center"
+          />
+        </div>
+        
+        {/* Dark Overlay (Desktop Only) */}
+        <div className="hidden md:block absolute inset-0 bg-[#070F1E]/35 z-10 mix-blend-multiply" />
+        <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-[#030814]/90 via-[#030814]/60 to-transparent z-10" />
+
+        {/* Content Container */}
+        <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center pt-8 pb-12 md:py-12 md:min-h-[460px] lg:min-h-[500px]">
           
-          {/* LEFT SIDE */}
-          <div className="w-full lg:w-[55%] max-w-[520px] flex flex-col justify-center">
+          <div className="w-full max-w-3xl">
             {/* Breadcrumb */}
             <div className="mb-4 flex items-center space-x-2 text-[13px] md:text-[14px] text-white/75 font-medium tracking-wide">
               <Link href="/" className="hover:text-white transition-colors">Home</Link>
@@ -63,7 +72,7 @@ export function EmbeddedSystems() {
               <span className="text-white">Embedded Systems</span>
             </div>
 
-            <span className="text-[#00C2E8] font-bold text-xs md:text-sm tracking-[0.2em] uppercase mb-4 block drop-shadow-md">
+            <span className="text-[#00C2E8] font-bold text-xs md:text-sm tracking-[0.2em] uppercase mb-3 block drop-shadow-md">
               OUR CAPABILITIES
             </span>
             <h1 
@@ -77,7 +86,7 @@ export function EmbeddedSystems() {
               Intelligent Systems. Real-World Impact.
             </p>
 
-            <p className="text-[16px] md:text-[18px] text-white/80 max-w-[500px] mb-8 leading-[1.6] font-light">
+            <p className="text-[16px] md:text-[18px] text-white/80 max-w-[500px] mb-8 leading-[1.6] font-light drop-shadow-md">
               We design and develop reliable, secure, and high-performance embedded systems that power the devices and solutions of tomorrow.
             </p>
             
@@ -90,7 +99,6 @@ export function EmbeddedSystems() {
               </Link>
             </div>
           </div>
-
         </div>
       </section>
 

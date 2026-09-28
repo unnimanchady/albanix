@@ -37,59 +37,69 @@ export function DataIntegrations() {
   return (
     <div className="w-full flex flex-col">
       
-      {/* 1. HERO SECTION */}
-      <section 
-        className="relative w-full flex flex-col justify-center pt-[64px] md:pt-[72px] lg:pt-[86px] h-[450px] lg:h-[500px] bg-[#030814] overflow-hidden"
-      >
-        <div className="absolute inset-0 w-full h-full z-0 flex justify-end">
-          <div className="relative w-full lg:w-[60%] h-full">
-            {/* Dark gradient overlay blending into the image */}
-            <div className="absolute inset-0 z-10 bg-gradient-to-r from-[#030814] via-[#030814]/80 to-transparent lg:to-transparent lg:via-[#030814]/40"></div>
-            <Image 
-              src="/images/ot-it-hero.jpg" 
-              alt="Industrial OT and IT Data Integration" 
-              fill 
-              className="object-cover object-center lg:object-right"
-              priority
-            />
+      {/* 1. HERO - FULL WIDTH IMAGE HEADER */}
+      <section className="relative w-full flex flex-col md:block md:min-h-[460px] lg:min-h-[500px] bg-[#030814] overflow-hidden">
+        
+        {/* Mobile Image (Uncropped, Full Aspect Ratio) */}
+        <div className="block md:hidden w-full relative z-0">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/ot-it-hero.jpg"
+            alt="Industrial OT and IT Data Integration"
+            className="w-full h-auto block"
+          />
+        </div>
 
-            {/* Subtle Data Flow Overlay */}
-            <div className="hidden lg:flex absolute bottom-[10%] right-[10%] z-20 items-center justify-between w-[80%] max-w-[600px] bg-[#071328]/70 backdrop-blur-sm border border-[#00C2E8]/20 rounded-full px-6 py-3 shadow-2xl">
-              <div className="flex flex-col items-center">
-                <Cpu className="w-4 h-4 text-slate-400 mb-1" />
-                <span className="text-[10px] font-bold text-white tracking-wider uppercase">PLC / MACHINES</span>
-              </div>
-              <div className="flex-1 h-[1px] mx-4 bg-gradient-to-r from-transparent via-[#00C2E8]/50 to-transparent relative">
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-[#00C2E8] shadow-[0_0_8px_#00C2E8] animate-pulse"></div>
-              </div>
-              
-              <div className="flex flex-col items-center">
-                <Server className="w-4 h-4 text-slate-400 mb-1" />
-                <span className="text-[10px] font-bold text-white tracking-wider uppercase">EDGE GATEWAY</span>
-              </div>
-              <div className="flex-1 h-[1px] mx-4 bg-gradient-to-r from-transparent via-[#00C2E8]/50 to-transparent relative">
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-[#00C2E8] shadow-[0_0_8px_#00C2E8] animate-pulse"></div>
-              </div>
+        {/* Desktop Image (Cover) */}
+        <div className="hidden md:block absolute inset-0 w-full h-full z-0">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/ot-it-hero.jpg"
+            alt="Industrial OT and IT Data Integration"
+            className="w-full h-full object-cover object-center lg:object-right"
+          />
+        </div>
+        
+        {/* Dark Overlay (Desktop Only) */}
+        <div className="hidden md:block absolute inset-0 bg-[#070F1E]/35 z-10 mix-blend-multiply" />
+        <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-[#030814]/90 via-[#030814]/60 to-transparent z-10" />
 
-              <div className="flex flex-col items-center">
-                <Database className="w-4 h-4 text-[#00C2E8] mb-1" />
-                <span className="text-[10px] font-bold text-[#00C2E8] tracking-wider uppercase">INDUSTRIAL DATA</span>
-              </div>
-              <div className="flex-1 h-[1px] mx-4 bg-gradient-to-r from-transparent via-[#00C2E8]/50 to-transparent relative">
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-[#00C2E8] shadow-[0_0_8px_#00C2E8] animate-pulse"></div>
-              </div>
+        {/* Subtle Data Flow Overlay */}
+        <div className="hidden lg:flex absolute bottom-[10%] right-[10%] z-20 items-center justify-between w-[50%] max-w-[600px] bg-[#071328]/70 backdrop-blur-sm border border-[#00C2E8]/20 rounded-full px-6 py-3 shadow-2xl">
+          <div className="flex flex-col items-center">
+            <Cpu className="w-4 h-4 text-slate-400 mb-1" />
+            <span className="text-[10px] font-bold text-white tracking-wider uppercase">PLC / MACHINES</span>
+          </div>
+          <div className="flex-1 h-[1px] mx-4 bg-gradient-to-r from-transparent via-[#00C2E8]/50 to-transparent relative">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-[#00C2E8] shadow-[0_0_8px_#00C2E8] animate-pulse"></div>
+          </div>
+          
+          <div className="flex flex-col items-center">
+            <Server className="w-4 h-4 text-slate-400 mb-1" />
+            <span className="text-[10px] font-bold text-white tracking-wider uppercase">EDGE GATEWAY</span>
+          </div>
+          <div className="flex-1 h-[1px] mx-4 bg-gradient-to-r from-transparent via-[#00C2E8]/50 to-transparent relative">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-[#00C2E8] shadow-[0_0_8px_#00C2E8] animate-pulse"></div>
+          </div>
 
-              <div className="flex flex-col items-center">
-                <Cloud className="w-4 h-4 text-slate-400 mb-1" />
-                <span className="text-[10px] font-bold text-white tracking-wider uppercase">CLOUD ANALYTICS</span>
-              </div>
-            </div>
+          <div className="flex flex-col items-center">
+            <Database className="w-4 h-4 text-[#00C2E8] mb-1" />
+            <span className="text-[10px] font-bold text-[#00C2E8] tracking-wider uppercase">INDUSTRIAL DATA</span>
+          </div>
+          <div className="flex-1 h-[1px] mx-4 bg-gradient-to-r from-transparent via-[#00C2E8]/50 to-transparent relative">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-[#00C2E8] shadow-[0_0_8px_#00C2E8] animate-pulse"></div>
+          </div>
+
+          <div className="flex flex-col items-center">
+            <Cloud className="w-4 h-4 text-slate-400 mb-1" />
+            <span className="text-[10px] font-bold text-white tracking-wider uppercase">CLOUD ANALYTICS</span>
           </div>
         </div>
 
-        <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center py-8 lg:py-0 h-full">
-          {/* LEFT SIDE */}
-          <div className="w-full lg:w-[50%] max-w-[540px] flex flex-col justify-center">
+        {/* Content Container */}
+        <div className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center pt-8 pb-12 md:py-12 md:min-h-[460px] lg:min-h-[500px]">
+          
+          <div className="w-full max-w-3xl">
             {/* Breadcrumb */}
             <div className="mb-4 flex items-center space-x-2 text-[12px] md:text-[13px] text-white/70 font-medium tracking-wide">
               <Link href="/" className="hover:text-white transition-colors">Home</Link>
@@ -98,29 +108,29 @@ export function DataIntegrations() {
               <span>/</span>
               <span className="text-white">Data & Integrations (OT↔IT)</span>
             </div>
-
+            
             <span className="text-[#00C2E8] font-bold text-xs md:text-sm tracking-[0.2em] uppercase mb-4 block drop-shadow-md">
               OUR CAPABILITIES
             </span>
             <h1 
-              className={`${oswald.className} text-white uppercase tracking-[-0.5px] mb-4 leading-[1.1] text-[34px] md:text-[42px] lg:text-[48px] drop-shadow-md`}
+              className={`${oswald.className} text-white uppercase tracking-[-0.5px] mb-4 leading-[1.1] text-[32px] md:text-[44px] lg:text-[50px] drop-shadow-md`}
             >
-              DATA & INTEGRATIONS <br />
-              <span className="text-[#00C2E8]">(OT↔IT)</span>
+              DATA & INTEGRATIONS <br className="hidden md:block" />
+              (OT↔IT)
             </h1>
             
-            <p className="text-[18px] md:text-[20px] text-white font-semibold mb-4 drop-shadow-md tracking-wide">
+            <p className="text-[18px] md:text-[20px] lg:text-[22px] text-white font-semibold mb-4 drop-shadow-md tracking-wide">
               Connecting Operations. Unlocking Intelligence.
             </p>
 
-            <p className="text-[15px] md:text-[17px] text-white/80 max-w-[480px] mb-8 leading-[1.6] font-light">
+            <p className="text-[16px] md:text-[18px] text-white/80 max-w-[500px] mb-8 leading-[1.6] font-light drop-shadow-md">
               Albanix connects operational technology with enterprise IT, transforming industrial data into secure, actionable intelligence that drives smarter decisions and better outcomes.
             </p>
             
             <div className="flex flex-col sm:flex-row items-start">
               <Link
                 href="#solutions"
-                className="flex items-center justify-center h-[50px] px-8 bg-[#176BFF] text-white text-[14px] font-bold rounded-md hover:bg-blue-600 hover:shadow-lg transition-all w-full sm:w-auto text-center"
+                className="flex items-center justify-center h-[54px] md:h-[48px] px-8 bg-[#176BFF] text-white text-[15px] font-bold rounded-md hover:bg-blue-600 hover:shadow-lg transition-all w-full sm:w-auto text-center"
               >
                 EXPLORE OUR SOLUTIONS <ArrowRight className="ml-2 w-4 h-4" />
               </Link>

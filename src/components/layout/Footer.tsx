@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Container } from "@/components/ui/Container";
-import { Linkedin, Facebook, Youtube, Phone, Mail, MapPin } from "lucide-react";
+import { Linkedin, Facebook, Instagram, Phone, Mail, MapPin } from "lucide-react";
 
 export function Footer() {
   return (
@@ -23,20 +23,20 @@ export function Footer() {
               Albanix creates industry-focused software platforms designed to simplify operations, connect people and help businesses grow.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-albanix-cyan hover:border-albanix-cyan transition-colors" aria-label="LinkedIn">
-                <Linkedin size={18} />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-albanix-cyan hover:border-albanix-cyan transition-colors" aria-label="Facebook">
+              <a href="#facebook-placeholder" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-albanix-cyan hover:border-albanix-cyan transition-colors" aria-label="Facebook" title="Facebook">
                 <Facebook size={18} />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-albanix-cyan hover:border-albanix-cyan transition-colors" aria-label="X">
+              <a href="#instagram-placeholder" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-albanix-cyan hover:border-albanix-cyan transition-colors" aria-label="Instagram" title="Instagram">
+                <Instagram size={18} />
+              </a>
+              <a href="#linkedin-placeholder" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-albanix-cyan hover:border-albanix-cyan transition-colors" aria-label="LinkedIn" title="LinkedIn">
+                <Linkedin size={18} />
+              </a>
+              <a href="#twitter-placeholder" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-albanix-cyan hover:border-albanix-cyan transition-colors" aria-label="Twitter / X" title="Twitter / X">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M4 4l11.733 16h4.267l-11.733 -16z" />
                   <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
                 </svg>
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-albanix-cyan hover:border-albanix-cyan transition-colors" aria-label="YouTube">
-                <Youtube size={18} />
               </a>
             </div>
           </div>
@@ -55,10 +55,10 @@ export function Footer() {
           <div>
             <h4 className="text-sm font-bold text-albanix-blue uppercase tracking-wider mb-6">Industries</h4>
             <ul className="space-y-4">
-              <li><Link href="#healthcare" className="text-sm text-albanix-light/80 hover:text-white transition-colors">Healthcare</Link></li>
-              <li><Link href="#fitness" className="text-sm text-albanix-light/80 hover:text-white transition-colors">Fitness</Link></li>
-              <li><Link href="#hospitality" className="text-sm text-albanix-light/80 hover:text-white transition-colors">Hospitality</Link></li>
-              <li><Link href="#distribution" className="text-sm text-albanix-light/80 hover:text-white transition-colors">Distribution</Link></li>
+              <li><Link href="/products" className="text-sm text-albanix-light/80 hover:text-white transition-colors">Healthcare</Link></li>
+              <li><Link href="/products" className="text-sm text-albanix-light/80 hover:text-white transition-colors">Fitness</Link></li>
+              <li><Link href="/products" className="text-sm text-albanix-light/80 hover:text-white transition-colors">Hospitality</Link></li>
+              <li><Link href="/products" className="text-sm text-albanix-light/80 hover:text-white transition-colors">Distribution</Link></li>
             </ul>
           </div>
 
@@ -86,30 +86,35 @@ export function Footer() {
         {/* Contact Info (Bottom row on desktop or interspersed on mobile depending on grid) */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 py-10 border-y border-white/10 mb-10">
           <div className="flex items-center gap-4">
-            <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-albanix-cyan">
+            <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-albanix-cyan shrink-0">
               <Phone size={20} />
             </div>
             <div>
               <p className="text-xs text-albanix-light/50 font-medium uppercase tracking-wider mb-1">Call Us</p>
-              <p className="text-sm text-white">+1 (212) 555-0199</p>
+              <div className="text-sm text-white space-y-1">
+                <div><a href="tel:+918075313023" className="hover:text-albanix-cyan transition-colors" aria-label="Call Prakash at +91 8075 313 023">+91 8075 313 023</a> — Prakash</div>
+                <div><a href="tel:+919633021373" className="hover:text-albanix-cyan transition-colors" aria-label="Call Siyad at +91 9633 021 373">+91 9633 021 373</a> — Siyad</div>
+              </div>
             </div>
           </div>
           <div className="flex items-center gap-4">
-            <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-albanix-cyan">
+            <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-albanix-cyan shrink-0">
               <Mail size={20} />
             </div>
             <div>
               <p className="text-xs text-albanix-light/50 font-medium uppercase tracking-wider mb-1">Email Us</p>
-              <p className="text-sm text-white">hello@albanix.com</p>
+              <p className="text-sm text-white">
+                <a href="mailto:info@albanix.com" className="hover:text-albanix-cyan transition-colors">info@albanix.com</a>
+              </p>
             </div>
           </div>
           <div className="flex items-center gap-4">
-            <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-albanix-cyan">
+            <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-albanix-cyan shrink-0">
               <MapPin size={20} />
             </div>
             <div>
               <p className="text-xs text-albanix-light/50 font-medium uppercase tracking-wider mb-1">Visit Us</p>
-              <p className="text-sm text-white">New York, USA</p>
+              <p className="text-sm text-white">Kakkanad, Kochi<br />Kerala 682037, India</p>
             </div>
           </div>
         </div>
