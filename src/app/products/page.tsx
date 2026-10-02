@@ -235,7 +235,7 @@ export default function ProductsPage() {
                     </li>
                   ))}
                 </ul>
-                <Link href="#treatanywhere" className="inline-flex items-center text-[#176BFF] font-bold hover:text-blue-700 transition-colors">
+                <Link href="/products/treatanywhere" className="inline-flex items-center text-[#176BFF] font-bold hover:text-blue-700 transition-colors">
                   EXPLORE TREATANYWHERE <ArrowRight className="ml-2 w-4 h-4" />
                 </Link>
               </div>
@@ -272,7 +272,7 @@ export default function ProductsPage() {
                     </li>
                   ))}
                 </ul>
-                <Link href="#gym-mate" className="inline-flex items-center text-[#176BFF] font-bold hover:text-blue-700 transition-colors">
+                <Link href="/products/gym-mate" className="inline-flex items-center text-[#176BFF] font-bold hover:text-blue-700 transition-colors">
                   EXPLORE GYM MATE <ArrowRight className="ml-2 w-4 h-4" />
                 </Link>
               </div>

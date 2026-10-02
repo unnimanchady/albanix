@@ -14,7 +14,7 @@ const productsData: ProductData[] = [
     description: 'A global healthcare platform that connects patients with trusted hospitals and treatment opportunities worldwide.',
     badge: 'Healthcare Technology',
     image: '/images/product-treatanywhere.png',
-    link: '/#treatanywhere',
+    link: '/products/treatanywhere',
     accentColor: 'text-blue-500', // Medical blue
     Icon: Activity,
   },
@@ -25,7 +25,7 @@ const productsData: ProductData[] = [
     description: 'Complete gym management software to streamline memberships, billing, classes, trainers and performance.',
     badge: 'Fitness Management',
     image: '/images/product-gym.png',
-    link: '/#gym-software',
+    link: '/products/gym-mate',
     accentColor: 'text-albanix-cyan', // Energetic cyan
     Icon: Dumbbell,
   },
@@ -36,7 +36,7 @@ const productsData: ProductData[] = [
     description: 'Power your restaurant operations with POS, kitchen management, inventory, delivery and analytics.',
     badge: 'Restaurant Technology',
     image: '/images/product-restaurant.png',
-    link: '/#restaurant-software',
+    link: '/products/menupilot',
     accentColor: 'text-teal-500', // Elegant teal
     Icon: Utensils,
   },
@@ -47,7 +47,7 @@ const productsData: ProductData[] = [
     description: 'Manage van sales, inventory, routes, orders, collections and customer relationships in real-time.',
     badge: 'Distribution Software',
     image: '/images/product-van-sales.png',
-    link: '/#van-sales-software',
+    link: '/products/routex',
     accentColor: 'text-albanix-blue', // Modern electric blue
     Icon: Truck,
   },

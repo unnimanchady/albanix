@@ -24,7 +24,7 @@ export function ContactCTA() {
           
           <div className="flex-shrink-0 w-full lg:w-auto mt-4 lg:mt-0">
             <Link
-              href="#contact"
+              href="/contact"
               className="flex items-center justify-center w-full lg:w-auto px-8 py-4 bg-white text-albanix-blue font-bold rounded-md hover:bg-albanix-light hover:shadow-lg transition-all"
             >
               TALK TO US &rarr;

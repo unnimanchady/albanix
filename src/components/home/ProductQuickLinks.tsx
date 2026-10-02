@@ -7,25 +7,25 @@ const quickLinks = [
   {
     title: "TreatAnywhere",
     subtitle: "Healthcare without borders",
-    href: "#treatanywhere",
+    href: "/products/treatanywhere",
     icon: Activity,
   },
   {
     title: "Gym Software",
     subtitle: "Manage. Engage. Grow.",
-    href: "#gym-software",
+    href: "/products/gym-mate",
     icon: Dumbbell,
   },
   {
     title: "Restaurant Software",
     subtitle: "From order to customer delight",
-    href: "#restaurant-software",
+    href: "/products/menupilot",
     icon: Utensils,
   },
   {
     title: "Van Sales Software",
     subtitle: "Distribution that moves with you",
-    href: "#van-sales",
+    href: "/products/routex",
     icon: Truck,
   },
 ];

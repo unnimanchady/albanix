@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, ArrowRight } from "lucide-react";
 import Link from "next/link";
 
 export function MobileNavigation() {
@@ -173,10 +173,9 @@ export function MobileNavigation() {
               {openAccordion === "company" && (
                 <div className="mt-4 pl-4 flex flex-col space-y-3 animate-in slide-in-from-top-2 duration-200 border-l-2 border-white/10">
                   {[
-                    { name: "About ALBANIX", href: "/about" },
-                    { name: "Our Approach", href: "/approach" },
-                    { name: "Capabilities", href: "/capabilities" },
-                    { name: "Contact", href: "/contact" }
+                    { name: "About Us", href: "/about" },
+                    { name: "Careers", href: "/careers" },
+                    { name: "Contact Us", href: "/contact" }
                   ].map((item) => (
                     <Link 
                       key={item.name}
@@ -193,13 +192,14 @@ export function MobileNavigation() {
 
           </nav>
           
-          <div className="mt-auto pt-10 border-t border-white/10">
+          <div className="mt-auto pt-10 border-t border-white/10 px-4 pb-4">
             <Link
               href="/contact"
               onClick={closeMenu}
-              className="w-full flex items-center justify-center bg-albanix-blue text-white py-4 rounded-md text-lg font-semibold hover:bg-blue-600 transition-colors"
+              className="w-full flex items-center justify-center h-[48px] bg-albanix-blue text-white rounded-full text-base font-semibold hover:bg-blue-600 transition-all duration-300 group"
             >
-              Get in Touch &rarr;
+              <span>Get in Touch</span>
+              <ArrowRight className="ml-2 w-[15px] h-[15px] transition-transform duration-300 group-hover:translate-x-1" strokeWidth={2.5} />
             </Link>
           </div>
         </div>

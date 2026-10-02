@@ -83,7 +83,7 @@ export function Hero() {
           <div className="flex flex-col sm:flex-row items-start gap-4">
             <Link
               href="/products"
-              className="flex items-center justify-center h-[44px] px-6 bg-[#0066FF] text-white text-[13px] font-bold rounded-[7px] hover:bg-blue-600 transition-all w-full sm:w-auto text-center"
+              className="flex items-center justify-center h-[44px] px-6 bg-[#0066FF] text-white text-[13px] font-bold rounded-full hover:bg-blue-600 transition-all w-full sm:w-auto text-center"
             >
               EXPLORE OUR PRODUCTS <span className="ml-2 font-normal">&rarr;</span>
             </Link>

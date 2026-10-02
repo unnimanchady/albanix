@@ -68,7 +68,7 @@ export function AboutAlbanix() {
             </div>
 
             <Link
-              href="#about"
+              href="/about"
               className="inline-flex items-center text-albanix-blue font-bold hover:text-blue-700 transition-colors"
             >
               DISCOVER ALBANIX &rarr;

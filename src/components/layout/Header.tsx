@@ -364,9 +364,8 @@ export function Header() {
                   </h3>
                   <ul className="space-y-4">
                     {[
-                      { name: "About ALBANIX", desc: "Who we are and what we build", href: "/about" },
-                      { name: "Our Approach", desc: "How we turn ideas into digital products", href: "/approach" },
-                      { name: "Capabilities", desc: "Our development and design services", href: "/capabilities" },
+                      { name: "About Us", desc: "Who we are and what we build", href: "/about" },
+                      { name: "Careers", desc: "Build what's next with us", href: "/careers" },
                       { name: "Contact Us", desc: "Let's discuss your project", href: "/contact" }
                     ].map((item) => (
                       <li key={item.name}>
@@ -396,9 +395,10 @@ export function Header() {
         <div className="flex items-center space-x-4 z-[110]">
           <Link
             href="/contact"
-            className="hidden md:inline-flex items-center justify-center px-6 py-2.5 bg-albanix-blue text-white text-sm font-semibold rounded-md hover:bg-blue-600 hover:shadow-lg transition-all active:scale-95"
+            className="hidden md:inline-flex items-center justify-center px-6 h-[44px] bg-albanix-blue text-white text-sm font-semibold rounded-full hover:bg-blue-600 transition-all duration-300 active:scale-95 group"
           >
-            Get in Touch &rarr;
+            <span>Get in Touch</span>
+            <ArrowRight className="ml-2 w-[14px] h-[14px] transition-transform duration-300 group-hover:translate-x-1" strokeWidth={2.5} />
           </Link>
           <MobileNavigation />
         </div>

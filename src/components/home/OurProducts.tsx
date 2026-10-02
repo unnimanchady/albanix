@@ -9,7 +9,7 @@ const products = [
     title: "TreatAnywhere",
     subtitle: "Healthcare Without Borders",
     description: "A global healthcare platform that connects patients with trusted hospitals and treatment opportunities worldwide.",
-    href: "#treatanywhere",
+    href: "/products/treatanywhere",
     image: "/images/product-treatanywhere.png",
     alt: "TreatAnywhere healthcare platform",
     icon: Activity,
@@ -18,7 +18,7 @@ const products = [
     title: "Gym Mate",
     subtitle: "Run Your Fitness Business Smarter",
     description: "Complete gym management software to streamline memberships, billing, classes, trainers and performance.",
-    href: "#gym-software",
+    href: "/products/gym-mate",
     image: "/images/product-gym.png",
     alt: "Gym Mate gym management software",
     icon: Dumbbell,
@@ -27,7 +27,7 @@ const products = [
     title: "MenuPilot",
     subtitle: "From Order to Customer Delight",
     description: "Power your restaurant operations with POS, kitchen management, inventory, delivery and analytics.",
-    href: "#restaurant-software",
+    href: "/products/menupilot",
     image: "/images/product-restaurant.png",
     alt: "MenuPilot restaurant management software",
     icon: Utensils,
@@ -36,7 +36,7 @@ const products = [
     title: "RouteX",
     subtitle: "Distribution That Moves With You",
     description: "Manage van sales, inventory, routes, orders, collections and customer relationships in real-time.",
-    href: "#van-sales",
+    href: "/products/routex",
     image: "/images/product-van-sales.png",
     alt: "RouteX van sales and distribution software",
     icon: Truck,
@@ -108,7 +108,7 @@ export function OurProducts() {
         <div className="mt-12 text-center">
           <Link
             href="/products"
-            className="inline-flex items-center justify-center h-[44px] px-8 bg-albanix-cyan text-white text-[13px] font-bold rounded-[7px] hover:bg-albanix-blue transition-colors uppercase tracking-wide"
+            className="inline-flex items-center justify-center h-[44px] px-8 bg-albanix-cyan text-white text-[13px] font-bold rounded-full hover:bg-albanix-blue transition-colors uppercase tracking-wide"
           >
             EXPLORE OUR PRODUCTS <ArrowRight className="ml-2 w-4 h-4" />
           </Link>

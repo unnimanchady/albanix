@@ -17,7 +17,7 @@ const products = [
     headline: "HEALTHCARE WITHOUT BORDERS",
     description: "A global healthcare platform that connects patients with trusted hospitals and treatment opportunities worldwide.",
     image: "/images/product-treatanywhere.png",
-    link: "/#treatanywhere",
+    link: "/products/treatanywhere",
     features: [
       "Connect patients with trusted hospitals",
       "Submit treatment requests",
@@ -34,7 +34,7 @@ const products = [
     headline: "RUN YOUR FITNESS BUSINESS SMARTER",
     description: "Complete gym management software to streamline memberships, billing, classes, trainers and performance.",
     image: "/images/product-gym.png",
-    link: "/#gym-software",
+    link: "/products/gym-mate",
     features: [
       "Membership management",
       "Billing and payments",
@@ -52,7 +52,7 @@ const products = [
     headline: "FROM ORDER TO CUSTOMER DELIGHT",
     description: "Power your restaurant operations with POS, kitchen management, inventory, delivery and analytics.",
     image: "/images/product-restaurant.png",
-    link: "/#restaurant-software",
+    link: "/products/menupilot",
     features: [
       "POS and billing",
       "Kitchen management",
@@ -71,7 +71,7 @@ const products = [
     headline: "DISTRIBUTION THAT MOVES WITH YOU",
     description: "Manage van sales, inventory, routes, orders, collections and customer relationships in real-time.",
     image: "/images/product-van-sales.png",
-    link: "/#van-sales-software",
+    link: "/products/routex",
     features: [
       "Van sales",
       "Vehicle inventory",
