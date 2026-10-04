@@ -114,7 +114,14 @@ export default function PrivacyPolicyPage() {
               </h2>
               <div className="text-slate-700 leading-relaxed bg-slate-50 p-6 rounded-xl border border-slate-100">
                 <p className="font-bold text-[#0B1736] mb-1">Albanix</p>
-                <p className="mb-4">Kakkanad, Kochi, Kerala 682037, India</p>
+                <p className="mb-4">
+                  No. 17/2259<br />
+                  Seaport - Airport Road<br />
+                  CSEZ P.O<br />
+                  Kakkanad, Kochi<br />
+                  Kerala - 682037<br />
+                  India
+                </p>
                 <p>
                   <span className="font-semibold">Email: </span>
                   <a href="mailto:info@albanix.com" className="text-[#176BFF] hover:underline">

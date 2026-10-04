@@ -63,7 +63,7 @@ export default function ContactPage() {
         message: ""
       });
     } catch (error) {
-      setSubmitError("Sorry, we couldn't send your message. Please try again or contact us directly at info@albanix.com.");
+      setSubmitError("Unable to send your message. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
@@ -114,9 +114,9 @@ export default function ContactPage() {
                   <div className="text-slate-600 leading-relaxed">
                     No. 17/2259<br />
                     Seaport - Airport Road<br />
-                    CSEZ, PO<br />
+                    CSEZ P.O<br />
                     Kakkanad, Kochi<br />
-                    Kerala 682037<br />
+                    Kerala - 682037<br />
                     India
                   </div>
                 </div>
@@ -153,7 +153,7 @@ export default function ContactPage() {
                   </div>
                   <h3 className={`${oswald.className} text-[28px] text-[#0B1736] mb-4`}>MESSAGE SENT SUCCESSFULLY</h3>
                   <p className="text-slate-600 text-lg max-w-[400px]">
-                    Thank you for sending the mail, we will contact you soon.
+                    Thank you. Your message has been sent successfully.
                   </p>
                   <button 
                     onClick={() => setIsSuccess(false)}

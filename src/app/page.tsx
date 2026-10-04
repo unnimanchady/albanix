@@ -36,7 +36,7 @@ export default function Home() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify({"@context":"https://schema.org","@type":"Organization","name":"Albanix","url":"https://www.albanix.com","logo":"https://www.albanix.com/icon.png","description":"Software development and digital product development company based in Kochi, Kerala, India.","address":{"@type":"PostalAddress","streetAddress":"No. 17/2259, Seaport - Airport Road, CSEZ, PO","addressLocality":"Kakkanad, Kochi","addressRegion":"Kerala","postalCode":"682037","addressCountry":"IN"},"contactPoint":{"@type":"ContactPoint","telephone":"+91-8075313023","contactType":"customer service","email":"info@albanix.com","availableLanguage":["English","Malayalam"]}}) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({"@context":"https://schema.org","@type":"Organization","name":"Albanix","url":"https://www.albanix.com","logo":"https://www.albanix.com/icon.png","description":"Software development and digital product development company based in Kochi, Kerala, India.","address":{"@type":"PostalAddress","streetAddress":"No. 17/2259, Seaport - Airport Road, CSEZ P.O","addressLocality":"Kakkanad, Kochi","addressRegion":"Kerala","postalCode":"682037","addressCountry":"IN"},"contactPoint":{"@type":"ContactPoint","telephone":"+91-8075313023","contactType":"customer service","email":"info@albanix.com","availableLanguage":["English","Malayalam"]}}) }}
       />
 
       <Hero />

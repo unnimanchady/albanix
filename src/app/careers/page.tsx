@@ -49,12 +49,6 @@ export default function CareersPage() {
               >
                 VIEW OPEN POSITIONS <ArrowRight className="ml-2 w-4 h-4" />
               </Link>
-              <Link
-                href="/contact"
-                className="flex items-center justify-center h-[54px] md:h-[48px] px-8 bg-white/5 border border-white/20 text-white text-[15px] font-bold rounded-md hover:bg-white/10 hover:border-white/30 transition-all w-full sm:w-auto text-center backdrop-blur-sm"
-              >
-                SEND YOUR PROFILE <ArrowRight className="ml-2 w-4 h-4 text-[#00C2E8]" />
-              </Link>
             </div>
           </div>
         </Container>
@@ -165,15 +159,9 @@ export default function CareersPage() {
             <h3 className="text-xl md:text-2xl font-bold text-[#0B1736] mb-4 uppercase tracking-wide">
               NO OPEN POSITIONS RIGHT NOW
             </h3>
-            <p className="text-slate-600 text-[16px] md:text-[18px] max-w-2xl mx-auto leading-relaxed mb-8">
-              We don't have any open positions at the moment. However, we’re always interested in hearing from talented people. Send us your profile and we’ll keep you in mind for future opportunities.
+            <p className="text-slate-600 text-[16px] md:text-[18px] max-w-2xl mx-auto leading-relaxed">
+              We don't have any open positions at the moment. However, we’re always interested in hearing from talented people. Send us your profile to <a href="mailto:hr@albanix.com" className="text-[#176BFF] hover:underline">hr@albanix.com</a> and we’ll keep you in mind for future opportunities.
             </p>
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center h-[48px] px-8 bg-[#176BFF] text-white text-[15px] font-bold rounded-md hover:bg-blue-600 hover:shadow-lg transition-all"
-            >
-              SEND YOUR PROFILE <ArrowRight className="ml-2 w-4 h-4" />
-            </Link>
           </div>
         </Container>
       </section>

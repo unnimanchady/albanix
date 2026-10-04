@@ -70,7 +70,7 @@ export function Footer() {
               Albanix creates industry-focused software platforms designed to simplify operations, connect people and help businesses grow.
             </p>
             <div className="flex space-x-4">
-              <a href="#facebook-placeholder" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-albanix-cyan hover:border-albanix-cyan transition-colors" aria-label="Facebook" title="Facebook">
+              <a href="https://www.facebook.com/AlbanixTech" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-albanix-cyan hover:border-albanix-cyan transition-colors" aria-label="Facebook" title="Facebook">
                 <Facebook size={18} />
               </a>
               <a href="https://www.instagram.com/albanixtech/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-albanix-cyan hover:border-albanix-cyan transition-colors" aria-label="Instagram" title="Instagram">
@@ -78,12 +78,6 @@ export function Footer() {
               </a>
               <a href="https://www.linkedin.com/company/albanix/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-albanix-cyan hover:border-albanix-cyan transition-colors" aria-label="LinkedIn" title="LinkedIn">
                 <Linkedin size={18} />
-              </a>
-              <a href="#twitter-placeholder" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-albanix-cyan hover:border-albanix-cyan transition-colors" aria-label="Twitter / X" title="Twitter / X">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M4 4l11.733 16h4.267l-11.733 -16z" />
-                  <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
-                </svg>
               </a>
             </div>
           </div>
@@ -174,9 +168,9 @@ export function Footer() {
               <p className="text-sm text-white leading-relaxed">
                 No. 17/2259<br />
                 Seaport - Airport Road<br />
-                CSEZ, PO<br />
+                CSEZ P.O<br />
                 Kakkanad, Kochi<br />
-                Kerala 682037<br />
+                Kerala - 682037<br />
                 India
               </p>
             </div>
