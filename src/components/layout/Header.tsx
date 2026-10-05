@@ -339,6 +339,19 @@ export function Header() {
             <span className="absolute bottom-1 left-3 right-3 h-0.5 bg-albanix-blue scale-x-0 transition-transform group-hover:scale-x-100 origin-left rounded-full"></span>
           </Link>
 
+          {/* Branding */}
+          <Link
+            href="/branding"
+            className={`px-3 py-2 text-sm font-medium transition-colors group relative ${
+              pathname === "/branding" ? "text-albanix-blue" : "text-white hover:text-albanix-blue"
+            }`}
+          >
+            Branding
+            <span className={`absolute bottom-1 left-3 right-3 h-0.5 bg-albanix-blue origin-left rounded-full transition-transform ${
+              pathname === "/branding" ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+            }`}></span>
+          </Link>
+
           {/* Company */}
           <div 
             className="relative"

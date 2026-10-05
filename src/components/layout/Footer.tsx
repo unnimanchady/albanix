@@ -39,8 +39,8 @@ const footerLinks = [
     links: [
       { name: "Blog", href: "/blog" },
       { name: "Case Studies", href: "/case-studies" },
-      { name: "Resources", href: "#resources" },
-      { name: "News & Events", href: "#events" },
+      { name: "Branding", href: "/branding" },
+      { name: "News & Events", href: "/news-events" },
     ]
   }
 ];

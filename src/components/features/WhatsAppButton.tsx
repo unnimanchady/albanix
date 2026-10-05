@@ -6,7 +6,7 @@ export const WhatsAppButton = () => {
       href="https://wa.me/918075473373"
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed z-[9999] right-[15px] bottom-[20px] md:right-[20px] md:bottom-auto md:top-1/2 md:-translate-y-1/2 flex items-center justify-center w-14 h-14 rounded-full bg-[#25D366] text-white shadow-[0_4px_14px_0_rgba(37,211,102,0.39)] hover:shadow-[0_6px_20px_rgba(37,211,102,0.23)] hover:bg-[#20ba56] transition-all duration-300 md:hover:scale-110"
+      className="fixed z-[999999] right-[10px] bottom-[20px] md:right-[10px] md:bottom-auto md:top-1/2 md:-translate-y-1/2 flex items-center justify-center w-14 h-14 rounded-full bg-[#25D366] text-white shadow-[0_4px_14px_0_rgba(37,211,102,0.39)] hover:shadow-[0_6px_20px_rgba(37,211,102,0.23)] hover:bg-[#20ba56] transition-all duration-300 hover:scale-110"
       aria-label="Chat with us on WhatsApp"
     >
       <svg

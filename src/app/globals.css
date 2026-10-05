@@ -64,3 +64,6 @@ body {
     scroll-behavior: auto !important;
   }
 }
+
+/* Hide Gemini floating button */
+[id*='gemini'], [class*='gemini'], #agy-chat-button, .agy-chat-widget, #gemini-chat-widget { display: none !important; }

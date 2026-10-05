@@ -3,10 +3,12 @@
 import React, { useState, useEffect } from "react";
 import { Menu, X, ChevronDown, ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export function MobileNavigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [openAccordion, setOpenAccordion] = useState<string | null>(null);
+  const pathname = usePathname();
 
   // Prevent scrolling when menu is open
   useEffect(() => {
@@ -158,6 +160,17 @@ export function MobileNavigation() {
               onClick={closeMenu}
             >
               Portfolio
+            </Link>
+
+            {/* Branding */}
+            <Link
+              href="/branding"
+              className={`text-2xl font-medium transition-colors ${
+                pathname === "/branding" ? "text-albanix-blue" : "text-white hover:text-albanix-blue"
+              }`}
+              onClick={closeMenu}
+            >
+              Branding
             </Link>
 
             {/* Company Accordion */}
